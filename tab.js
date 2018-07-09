@@ -6,6 +6,7 @@ function openTab(evt, tabName) {
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
+        tabcontent[i].className.replace(" w3-animate-opacity", "");
     }
 
     // Get all elements with class="tablinks" and remove the class "active"
@@ -15,6 +16,8 @@ function openTab(evt, tabName) {
     }
 
     // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(tabName).style.display = "block";
+    var activeContent = document.getElementById(tabName);
+    activeContent.style.display = "block";
+    activeContent.className += " w3-animate-opacity";
     evt.currentTarget.className += " active";
 }

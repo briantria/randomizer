@@ -18,6 +18,24 @@ function getRandomIndex()
 
 function removePlayer(index)
 {
+    // trigger animation
+    var divAlias = document.getElementById("alias");
+    var divDesc = document.getElementById("desc");
+
+    if(players[index].alias)
+    {
+        divAlias.innerHTML = "a.k.a. " + players[index].alias;
+        divAlias.style.display = "block";
+        //divAlias.className += " w3-animate-left";
+    }
+
+    if(players[index].desc)
+    {
+        divDesc.innerHTML = "\"" + players[index].desc + "\"";
+        divDesc.style.display = "block";
+        //divDesc.className += " w3-animate-right";
+    }
+
     // swap
     var temp         = players[index];
     players[index]   = players[currMin];
@@ -27,6 +45,18 @@ function removePlayer(index)
     ++currMin;
 }
 
+function resetDetails()
+{
+    var divAlias = document.getElementById("alias");
+    var divDesc = document.getElementById("desc");
+
+    //divAlias.className.replace(" w3-animate-left", "");
+    //divDesc.className.replace(" w3-animate-right", "");
+
+    divAlias.style.display = "none";
+    divDesc.style.display = "none";
+}
+
 function roll()
 {
     if(players.length - currMin <= 1)
@@ -34,6 +64,7 @@ function roll()
         return 0;
     }
 
+    resetDetails();
     var randNameContainer = document.getElementById("selectedName");
 
     // random wheel effect
