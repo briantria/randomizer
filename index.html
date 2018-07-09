@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<meta charset="utf-8">
+<head>
+    <title>Randomizer</title>
+
+    <link rel="stylesheet" type="text/css" href="randName.css">
+    <link rel="stylesheet" type="text/css" href="tab.css">
+
+    <script src="csvParser.js" type="text/javascript"></script>
+    <script src="randName.js"  type="text/javascript"></script>
+    <script src="tab.js"       type="text/javascript"></script>
+</head>
+<body>
+    <div class="tabcontainer">
+        <div id="question1" class="tabcontent">
+            <p>
+                Think of a non-game application or activity. Does it implement gamification?<br/>
+                If yes, explain how;<br/>
+                If not, how can we improve it using the game mechanics discussed (goals and onboarding).
+            </p>
+        </div>
+        
+        <div id="question2" class="tabcontent">
+            <p>
+                Choose at least one from the game mechanics and share how would you apply it; either in work or in everyday life.
+            </p>
+        </div>
+
+        <div id="nameContainer">
+            <div id="selectedName">name</div>
+        </div>
+    </div>
+    
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'question1')">Q1</button>
+        <button class="tablinks" onclick="openTab(event, 'question2')">Q2</button>
+
+        <button type="button" onclick="roll()" style="float:right">Choose Player</button>
+        <input type="file" name="file" id="file" class="inputfile"/>
+        <label for="file">Load Names</label>
+    </div>
+</body>
